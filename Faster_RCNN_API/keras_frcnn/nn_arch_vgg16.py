@@ -11,6 +11,18 @@ In this file you have to define atleast 3 functions namely :
     3) classifier()
     
 Make sure you don't change the function names and the keyword arguments
+
+STEPS TO DEFINE NEW FEATURE EXTRACTOR ARCHITECTURE 
+1) Create a new foo.py file
+2) Define the 3 functions stated above (Those are mandatory)
+    -- nn_base() is the first stage feature extractor
+    -- rpn() is the RPN ;ayer
+    -- classifier() is the final classification layer
+3) Make sure you wrap the layers in the final classifier layer using TimeDistributed() layer 
+   so that it can process multiple batches of ROIs simultaneously
+4) Refer nn_arch_inceptionv3.py for additional example  
+    
+Pass this whole foo.py as an object to Train_frcnn method
 """
 ############### define VGG-16 model for faster_rcnn########################
 # future imports
