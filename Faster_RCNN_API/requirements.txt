@@ -1,0 +1,7 @@
+h5py
+Keras with tensorflow background
+numpy
+opencv-python
+sklearn
+pandas
+graphviz (for model visualization)
