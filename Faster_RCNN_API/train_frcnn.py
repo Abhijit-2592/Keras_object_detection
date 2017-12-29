@@ -69,7 +69,8 @@ def Train_frcnn(train_path, # path to the text file containing the data
     output_weight_path --str: path to save the frcnn weights (no Default)
     preprocessing_function --function: Optional preprocessing function (must be defined like given in keras docs) (Default None)
     config_filename --str: Path to save the config file. Used when testing (Default "config.pickle")
-    input_weight_path --str: Path to hdf5 file containing weights for the base model (Default None)
+    input_weight_path --str: Path to hdf5 file containing weights for the model (Default None)
+                             you can pass path to both classification and detection checkpoints as long as the names dont' change
     train_rpn --bool: whether to train the rpn layer (Default True)
     train_final_classifier --bool:Whether to train the final_classifier (Fast Rcnn layer) (Default True)
     train_base_nn --bool:Whether to train the base_nn/fixed_feature_extractor (Default True)
@@ -98,8 +99,15 @@ def Train_frcnn(train_path, # path to the text file containing the data
     seed --int: To seed the random shuffling of training data (Default = 5000)
     
     Performing alternating training:
-    Use the train_rpn,train_final_classifier and train_base_nn arguments to accomplish
-    alternating training
+    - Use the train_rpn,train_final_classifier and train_base_nn boolean arguments to accomplish
+    alternating training.
+    - While using the above arguments change the members of losses_to_watch = ['rpn_cls','rpn_reg','final_cls','final_reg']
+      accordingly else it will throw error
+    - for eg if you are training only the base_nn and the rpn set:
+         train_rpn = True
+         train_base_nn = True
+         train_final_classifier = False
+         losses_to_watch = ['rpn_cls','rpn_reg'] (do not include 'final_cls', 'final_reg')
     
     OUTPUT:
     prints the training log. Does not return anything
@@ -114,6 +122,8 @@ def Train_frcnn(train_path, # path to the text file containing the data
     NOTE: 
     as of now the batch size = 1
     Prints loss = 0 for losses from model which is not being trained
+    
+    TODO: The training is a bit slow because of the data generation step. Generate_data in multiple threads and queue them for faster training
     
     """
     check_list = ['rpn_cls','rpn_reg','final_cls','final_reg']

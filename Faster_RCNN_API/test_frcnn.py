@@ -31,7 +31,7 @@ def Test_frcnn(test_images_list,
     final_classification_threshold --float: (0,1) min threshold for accepting as a detection in final classifier (Default 0.8)                       
     
     OUTPUT:
-    returns the images, and a dataframe with data
+    returns the images with bboxes over layed using opencv, and a dataframe with data
     """
     nn = network_arch
 
