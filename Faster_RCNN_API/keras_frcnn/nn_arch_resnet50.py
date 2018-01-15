@@ -204,7 +204,7 @@ def classifier_layers(x, input_shape, trainable=False):
     return x
 
 
-def rpn(base_layers,num_anchors):
+def rpn(base_layers,num_anchors, trainable=False):
 
     x = Convolution2D(512, (3, 3), padding='same', activation='relu', kernel_initializer='normal', name='rpn_conv1')(base_layers)
 
