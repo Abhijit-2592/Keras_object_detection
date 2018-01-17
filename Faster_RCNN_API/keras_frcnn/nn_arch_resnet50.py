@@ -14,7 +14,7 @@ from keras.layers import Input, Add, Dense, Activation, Flatten, Convolution2D, 
 from keras import backend as K
 
 from keras_frcnn.RoiPoolingConv import RoiPoolingConv
-from FixedBatchNormalization import FixedBatchNormalization
+from keras_frcnn.FixedBatchNormalization import FixedBatchNormalization
 
 def get_weight_path():
     if K.image_dim_ordering() == 'th':
@@ -204,7 +204,7 @@ def classifier_layers(x, input_shape, trainable=False):
     return x
 
 
-def rpn(base_layers,num_anchors):
+def rpn(base_layers,num_anchors, trainable=False):
 
     x = Convolution2D(512, (3, 3), padding='same', activation='relu', kernel_initializer='normal', name='rpn_conv1')(base_layers)
 
