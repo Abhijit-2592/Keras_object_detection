@@ -35,10 +35,3 @@ Keras implementation of Faster R-CNN architecture: Towards Real-Time Object Dete
     
 - [test_frcnn](https://github.com/Abhijit-2592/Keras_object_detection/blob/master/Faster_RCNN_API/test_frcnn.py) Use for testing the model on images
 - [measure-map](https://github.com/Abhijit-2592/Keras_object_detection/blob/master/Faster_RCNN_API/measure_map.py) Use to measure the Mean Average Precision Metric
-
-Example output:
-
-![ex1](http://i.imgur.com/7Lmb2RC.png)
-![ex2](http://i.imgur.com/h58kCIV.png)
-![ex3](http://i.imgur.com/EbvGBaG.png)
-![ex4](http://i.imgur.com/i5UAgLb.png)
