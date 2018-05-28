@@ -5,7 +5,7 @@ Keras implementation of Faster R-CNN architecture: Towards Real-Time Object Dete
 - Refer the corresponding python files for detailed documentations.  
 - Terminal support is withdrawn. Use the scripts as importable functions.
 
-## MAIN ADDITIONAL FEATURES:
+## MAIN FEATURES:
 - Both python-2 and python-3 are supported
 - Support for Validation data
 - Tensorboard logging of scalar quantities
@@ -21,7 +21,7 @@ Keras implementation of Faster R-CNN architecture: Towards Real-Time Object Dete
     filepath,x1,y1,x2,y2,class_name
     The images must be manually split into `train` and `valid` sets and should be put inside **/train/** and **/valid/** folders. 
     
-    **NOTE
+    **NOTE**
 
     For example: The contents of the text file should look like this
     
