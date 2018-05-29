@@ -39,9 +39,12 @@ Keras implementation of Faster R-CNN architecture: Towards Real-Time Object Dete
 ## STEPS TO DEFINE NEW FEATURE EXTRACTOR ARCHITECTURE 
 1) Create a new .py file
 2) Define the following 3 functions
-    -- nn_base() is the first stage feature extractor
-    -- rpn() is the RPN layer
-    -- classifier() is the final classification layer
+    * nn_base() is the first stage feature extractor
+    
+    * rpn() is the RPN layer
+    
+    * classifier() is the final classification layer
+    
 3) Make sure you wrap the layers in the final classifier layer using TimeDistributed() layer 
    so that it can process multiple batches of ROIs simultaneously
 4) Refer [nn_arch_vgg16](https://github.com/Abhijit-2592/Keras_object_detection/blob/master/Faster_RCNN_API/keras_frcnn/nn_arch_vgg16.py) and [nn_arch_inceptionv3.py](https://github.com/Abhijit-2592/Keras_object_detection/blob/master/Faster_RCNN_API/keras_frcnn/nn_arch_inceptionv3.py) for examples
